@@ -1,0 +1,186 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: open-sans;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.hover {
+  background-color: rgb(146, 146, 143);
+}
+
+.chatsCol {
+  position: fixed;
+  max-width: 400px;
+  width: 300px;
+  height: 1000px;
+  max-height: 1000px;
+  box-shadow: 10px 10px 10px rgba(40, 40, 80);
+  background-color: rgba(40, 40, 80);
+  color: white;
+  left: 0px;
+  top: 0px;
+  padding-top: 10px;
+  border-radius: 0px;
+}
+.chatDetailsCol {
+  position: absolute;
+  background-color: rgba(67, 67, 122);
+  left: 305px;
+  padding-top: 20px;
+  width: 1000px;
+  top: 50px;
+  max-width: 1200px;
+  height: 800px;
+  max-height: 800px;
+  border-radius: 5px;
+}
+.title {
+  position: absolute;
+  background-color: rgb(67, 67, 122);
+  color: rgb(67, 67, 122);
+  padding: 5px;
+  padding-left: 100px;
+  padding-right: 100px;
+  top: 0px;
+  left: 300px;
+  height: 50px;
+  width: 1000px;
+  max-width: 1200px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  background-color: lightblue;
+  color: white;
+  width: 100%;
+}
+input[type="text"]:focus {
+  background-color: rgb(121, 211, 241);
+}
+
+.page {
+  background-color: rgb(67, 67, 122);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.flex-container {
+  position: absolute;
+
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  top: 0px;
+  left: 0px;
+}
+
+.chatDetailRow {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(67, 67, 122);
+  margin-left: 0px;
+  width: 1000px;
+  height: 200px;
+  max-height: 1000px;
+  max-width: 1000px;
+}
+
+.question {
+  background-color: rgb(99, 99, 150);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+  max-width: 1200px;
+  width: 1200px;
+  border-radius: 5px;
+}
+.qText {
+  position: sticky;
+  margin-left: 50px;
+  margin-top: 10px;
+  max-width: 800px;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+.aText {
+  position: sticky;
+  margin-left: 50px;
+  margin-top: 10px;
+  width: 600px;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.answer {
+  background-color: rgb(67, 67, 122);
+  color: white;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sendButton {
+  position: absolute;
+  left: 1150px;
+  top:0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+}
+.sendButton:hover {
+  background-color: rgb(178, 227, 244);
+}

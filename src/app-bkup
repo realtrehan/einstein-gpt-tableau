@@ -1,0 +1,38 @@
+import { ChatsList } from "./chats.js";
+import { ChatsProvider, ChatsDetailsProvider } from "./context.js";
+import { AddChat } from "./addChat.js";
+import { ChatsDetailsList } from "./chatDetails.js";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { ChatSelected } from "./chatSelected.js";
+
+export default function App() {
+  return (
+    <Container fluid style={{ background: "#e6e6e6" }}>
+      <Row>
+        <ChatSelected selectedId>
+          <ChatsProvider>
+            <Col
+              className="px-0"
+              md={3}
+              xs={6}
+              fluid
+              style={{ background: "#cccccc" }}
+            >
+              <h1>Day off in Kyoto</h1>
+              <AddChat />
+              <ChatsList />
+            </Col>
+          </ChatsProvider>
+
+          <ChatsDetailsProvider>
+            <Col md={9} xs={6} className="mx-0">
+              <ChatsDetailsList />
+            </Col>
+          </ChatsDetailsProvider>
+        </ChatSelected>
+      </Row>
+    </Container>
+  );
+}
