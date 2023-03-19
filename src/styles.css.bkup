@@ -50,6 +50,12 @@ ul {
   background-color: rgb(146, 146, 143);
 }
 
+.highlighted {
+  background-color: rgb(241, 241, 199);
+  color: rgb(11, 11, 10) !important; 
+}
+
+
 .chatsCol {
   position: fixed;
   max-width: 400px;
@@ -72,7 +78,7 @@ ul {
   width: 1000px;
   top: 50px;
   max-width: 1200px;
-  height: 800px;
+  height: 1000px;
   max-height: 800px;
   border-radius: 5px;
 }

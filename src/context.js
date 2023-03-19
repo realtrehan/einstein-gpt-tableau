@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import React, { StrictMode } from "react";
+import { makeAutoObservable, observable } from "mobx";
 
 const ChatsContext = createContext(null);
 
@@ -122,9 +123,15 @@ function chatsDetailsReducer(chatsDetails, action) {
   }
 }
 
-const initialChats =[
-  {id:0, text:"0 first chat ", active:true}
-]
+export const initialChats = {
+  chats:[
+  {id:0, text:"1. chat ", active:true}
+  ],
+  addChat :  function (chat) {
+      this.chats.push(chat)
+  }
+
+}
 /** 
 const initialChats = [
   { id: 0, text: "1.....", active: false },
@@ -133,19 +140,29 @@ const initialChats = [
 ];
 */
 
-const initialChatsDetails = [
-  {
+export const initialChatsDetails = {
+  chatsDetails: [ {
   chatId:0,
   active: true,
   questionAnswers :[
-    {
-      id:0,
-      question:'your first question',
-      answer:''
-    }
+   
   ]
 }
 ]
+}
+export const gptConfig = { url:"https://api.openai.com/v1/chat/completions", key: "enter your key", model:"gpt-3.5-turbo", temperature:0.7}
+
+export const gptResponses = {
+  responses:[
+    
+  ]
+}
+
+makeAutoObservable(gptConfig);makeAutoObservable(gptResponses);
+
+makeAutoObservable(initialChats);
+
+makeAutoObservable(initialChatsDetails); 
 
 /** 
 const initialChatDetails = [
@@ -177,4 +194,5 @@ const initialChatDetails = [
   }
 ];
 */
+
 

@@ -3,137 +3,179 @@ import React, { StrictMode } from "react";
 import { useChats, useChatsDispatch } from "./context.js";
 import { useState, useRef, useEffect } from "react";
 import SendButton from "./sendButton.svg";
-import { useChatsDetails, useChatsDetailsDispatch } from "./context.js";
+import { useChatsDetails, useChatsDetailsDispatch,gptConfig } from "./context.js";
 import _ from "lodash";
+import {
+  initialChats as chatsStore,
+  initialChatsDetails as chatsDetailsStore,
+} from "./context.js";
+import { action, autorun, runInAction, toJS } from "mobx";
+import { observer } from "mobx-react-lite";
+import { useConfig } from "./tableau/useConfig.js";
+import { useRunGPT } from "./lib/useRunGPT.js";
+import LinearProgress  from "@mui/material/LinearProgress";
+
 
 //addedChatId is callback to pass the chatId back to the parent chatdetails
-export function ChatInput({addedChatId}) {
-    const chats = useChats();
-    const dispatch = useChatsDispatch();
+export const ChatInput = observer(function () {
+  const chats = chatsStore.chats;
 
-    const chatsDetails = useChatsDetails();
-    const dispatchDetails = useChatsDetailsDispatch();
-  
-    console.log("chat details dispatch is ", dispatchDetails)
+  const chatsDetails = chatsDetailsStore.chatsDetails;
 
-    const [newChat, setNewChat] = useState(false);
+  const [newChat, setNewChat] = useState(false);
+  const [inputVal, setInputVal] = useState(""); //to capture the input text value
+const [inputState, setInputState] = useState(false) //to disable enter key to avoid double submit
 
-    //for the input text chat enter press key
-    function newChatEnter(e) {
-        console.log("enter ..", e);
-        if (e.key === "Enter") {
-          console.log("enter key add value is...", e.target.value);
-          //textInput.current.removeEventListener("onKeyDown", newChatEnter);
-             
-          setNewChat(true);
+    const config = gptConfig
 
-          const activeChatId = chats.filter((chat)=> chat.active == true)[0].id
-
-          console.log("active chat id in chatinput is ", activeChatId);
-          
-          //pass the activeId and the input question/answer back to chatdetails
-          addedChatId( activeChatId ,e.target.value,"sample answer coming from chatgpt");
-
-          const addedChat = {activeChatId: activeChatId, question:e.target.value, answer:"sample answer coming from chatgpt"}
-          //pass the new chatId back to the parent to update the chatdetails component
-            /**  */
-
-            handleChatEnterforDetails(chatsDetails,dispatchDetails,addedChat )
-
-
-        }
-      }
-
-      //for the send icon button click
-      function newChatSendButton(e){
-        setNewChat(true);
-
-          //pass the new chatId back to the parent to update the chatdetails component
-          addedChatId( chats.length + 1);
-
-          dispatch({
-            type: "added",
-            id: chats.length + 1,
-            text: `${chats.length + 1} new chat`
-          });
-
-      }
-
-    const elem = (
-        <Fragment>
-    <div id="title" className="title">
-    <input
-    id="questionInput"
-
-      type="text"
-      class="form-control"
-      aria-label="Default"
-      aria-describedby="inputGroup-sizing-default"
-      placeholder="Type your question here..."
-      onKeyPress={newChatEnter}
-     
-    />
-  </div>
-  <button id="sendButton"  onClick={newChatSendButton} >
-    <img id="sendIcon" className="sendButton" src={SendButton} alt="React Logo" />
-  </button>
-  </Fragment>
-    )
-    return elem;
-
-
-    function handleChatEnterforDetails (chatsDetails, dispatchDetails, addedChat) {
-        {
-            const activeChatDetail = chatsDetails.find(
-              (detail) => detail.chatId == addedChat.activeChatId
-            );
-        
-            // Find the index of the object to replace in the questionAnswers array
-            const index = chatsDetails.findIndex(
-              (detail) => detail.chatId == addedChat.activeChatId
-            );
-        
-         
-            const activeQuestionAnswers = activeChatDetail.questionAnswers;
-            console.log("active ques ans is ...", _.cloneDeep 
-            (activeQuestionAnswers));
-        
-        
-            const newActiveQuestionAnswers =  _.concat(activeQuestionAnswers, {
-              id: activeQuestionAnswers.length ,
-              question: addedChat.question,
-              answer: addedChat.answer,
-            });
-        
-            console.log(" new active question answer ",newActiveQuestionAnswers);
-            
-            const updatedActiveQuestionAnswer = Object.assign(newActiveQuestionAnswers, {
-              chatId: addedChat.activeChatId,
-              active: true,
-                  });
-        
-            console.log(
-              "updated active question answer is ..", updatedActiveQuestionAnswer
-            );
-            // Replace the existing object with the new one
-            const newChatsDetails = _.cloneDeep(chatsDetails);
-            newChatsDetails[index].questionAnswers = updatedActiveQuestionAnswer;
-        
-            console.log(
-              "updated active question answer is ..",  newChatsDetails
-            );
-        
-            /** -- this will only trigger when it is part of a component property like onclick or callback function
-            console.log("dipatching added question answer ", chatsDetails);
-              //time to dispatch the added chat to the chatdetails array, but need to get the active chat from array
-              */
-              dispatchDetails({
-                type: "changed",
-                payload: updatedActiveQuestionAnswer,
-              });
-            
-            }
+  //for the input text chat enter press key
+  function newChatEnter(e) {
+    console.log("enter ..", e);
+    if (e.key === "Enter") {
+       
+      processNewChatEvent();
     }
+  }
 
+  // process new chat enter either via enter key or button click
+
+  async function processNewChatEvent() {
+    setNewChat(true);
+    setInputState(true); //disable input enter
+
+    const activeChatId = chats.find((chat) => chat.active == true);
+
+    console.log("active chat id in chatinput is ", activeChatId.id);
+
+    //pass the activeId and the input question/answer back to chatdetails
+    // addedChatId( activeChatId ,e.target.value,"sample answer coming from chatgpt");
+    let activeDetailIndex, activeQuestionAnswers;
+
+    chatsDetails.forEach((detail, i) => {
+      console.log("detail is..", detail);
+      if (detail.chatId == activeChatId.id) {
+        activeQuestionAnswers = detail;
+        activeDetailIndex = i;
+        console.log("detail ", activeQuestionAnswers, " i ", activeDetailIndex);
+      }
+    });
+
+   
+
+    //call the useRungpt hook to pass question to gpt
+
+    const messages = {
+        model: config.model,
+        messages: [{ role: "user", content: inputVal }],
+        temperature: parseFloat(config.temperature),
+      };
+
+      let gptRes;
+     
+    gptRes = await runGPT(messages,config.url, config.key)
+
+    runInAction(()=>{
+  // input the gpt response back to array
+  chatsDetails[activeDetailIndex].questionAnswers.push({
+    id: chatsDetails[activeDetailIndex].questionAnswers.length,
+    question: "Question: " + inputVal,
+    answer: gptRes,
+  });
+    })
+
+    //this is needed in mobx to deal with changing the properties, because it does not tracks references.
+    let updated;
+    updated = _.cloneDeep(chatsDetails[activeDetailIndex]);
+    _.assign(chatsDetails[activeDetailIndex], updated);
+
+    const beforeUpdate = toJS(chatsDetails);
+
+    //do the above to clone deep and assign or below like replace. the most important part to let mobx know the array has changed.
+    //chatsDetails.replace(beforeUpdate)
+
+    // reset the value to blank again after question entered.
+    setInputVal("");
+  }
+
+// for running GPT 
+function runGPT (gptRequestPayload,url, key){
+
+    return new Promise((resolve, reject) => {
+
+
+    const gptPayload = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer "+ key
+        },
+        body: JSON.stringify(gptRequestPayload),
+      };
+
+      if (key.includes('enter your key') === false)  {
+        console.log("calling gpt api with payload..", gptPayload);
+      /** */
+      fetch(url, gptPayload)
+        .then((res) => res.json())
+        .then(
+          action((res) => {
+            console.log("gpt response...", res);
+            const content = res.choices[0].message.content;
+            console.log("gpt response...", content);
+
+            setInputState(false) //renable the enter input 
+            resolve(content);
+            
+          })
+        ).catch((err)=>{console.log("error in gpt fetch!!", err)});
+    
+  };
+})
 }
 
+
+  //for the send icon button click
+  function newChatSendButton(e) {
+    processNewChatEvent();
+  }
+  const style = {
+    width: "auto",
+    maxWidth: "700px",
+  };
+
+  const elem = (
+    <Fragment>
+      <div
+        id="title"
+        className="d-flex justify-content-center ps-3 mt-2"
+      >
+        <input
+          id="questionInput"
+          type="text"
+          class="form-control "
+          aria-label="Default"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="Type your question here..."
+          onKeyPress={newChatEnter}
+          onChange={(e) => {
+            setInputVal(e.target.value);
+          }}
+          value={inputVal}
+          disabled = {inputState}
+        />
+
+        <button id="sendButton" onClick={newChatSendButton} className="btn">
+          <img
+            id="sendIcon"
+            className="sendButton col-sm-3"
+            src={SendButton}
+            alt="React Logo"
+          />
+        </button>
+      </div>
+      { inputState && <LinearProgress />}
+    </Fragment>
+  );
+  return elem;
+});

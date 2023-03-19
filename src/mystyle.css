@@ -1,0 +1,9 @@
+
+.hover {
+  background-color: rgb(146, 146, 143);
+}
+
+.highlighted {
+  background-color: rgb(241, 241, 199);
+  color: rgb(11, 11, 10);
+}

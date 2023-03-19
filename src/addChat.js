@@ -1,39 +1,50 @@
 import { useChats, useChatsDispatch } from "./context.js";
 
 import React, { StrictMode } from "react";
+import { Observer, observer } from "mobx-react";
+import { initialChats  as chats, initialChatsDetails as chatsDetailsStore} from "./context.js";
+import { autorun, trace } from "mobx";
 
-export function AddChat({ newChat }) {
-  const chats = useChats();
-  const dispatch = useChatsDispatch();
+export const AddChat =   observer( function ({setSelectedChat}) {
 
-  if (newChat) {
-    console.log("chat icon button submitted");
-    dispatch({
-      type: "added",
-      id: chats.length + 1,
-      text: `${chats.length + 1} new chat`
-    });
-  }
 
-  let addChatButton = (
-    <button
+  const chatsDetails = chatsDetailsStore.chatsDetails;
+
+  const addChatButton = (
+    
+    <button className="btn btn-outline-info btn-sm btn-block"
       onClick={
         buttonClicked
       }
     >
       New Chat
     </button>
-  );
+    
+  ) ;
 
   function buttonClicked(e) {
-    console.log("chat lenght is ", chats.length);
+    console.log("chat lenght is ", chats.chats.length);
+   
+    chats.chats.forEach(chat=>{chat.active = false }) 
 
-    dispatch({
-      type: "added",
-      id: chats.length + 1,
-      text: `${chats.length + 1} new chat`
-    });
+     chatsDetails.push({
+      chatId: chats.chats.length,
+      questionAnswers: []
+    })
+   
+    setSelectedChat(chats.chats.length)
+
+      chats.chats.push(
+        {
+        id: chats.chats.length,
+        text: `${chats.chats.length +1 }. chat`,
+        active: true
+      });
+    
   }
 
-  return addChatButton;
+  return (
+ addChatButton
+  );
 }
+)
