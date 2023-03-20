@@ -27,7 +27,8 @@ export const ChatInput = observer(function () {
   const [inputVal, setInputVal] = useState(""); //to capture the input text value
 const [inputState, setInputState] = useState(false) //to disable enter key to avoid double submit
 
-    const config = gptConfig.configs[0];
+   // const config = gptConfig.configs[0];
+   const config = gptConfig;
 
   //for the input text chat enter press key
   function newChatEnter(e) {

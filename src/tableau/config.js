@@ -55,13 +55,16 @@ export const Config = function ({ configCallback }) {
           : setTemperature(settings.temperature);
 
         //action(() => {
-          const updated = _.cloneDeep(gptConfig.configs[0]);
+          //const updated = _.cloneDeep(gptConfig.configs[0]);
+          const updated = _.cloneDeep(gptConfig);
           updated.key = settings.key;
           updated.url = settings.url;
           updated.model = settings.model;
           updated.temperature = settings.temperature;
 
-          _.assign(gptConfig.configs[0], updated);
+          _.assign(gptConfig, updated);
+
+          //_.assign(gptConfig.configs[0], updated);
         //});
 
         configCallback({
@@ -102,13 +105,14 @@ export const Config = function ({ configCallback }) {
             setCollapse(false);
 
             //action(() => {
-              const updated = _.cloneDeep(gptConfig.configs[0]);
+             // const updated = _.cloneDeep(gptConfig.configs[0]);
+             const updated = _.cloneDeep(gptConfig);
               updated.key = key;
               updated.url = url;
               updated.model = model;
               updated.temperature = temperature;
 
-              _.assign(gptConfig.configs[0], updated);
+              _.assign(gptConfig, updated);
             //});
 
             configCallback({
