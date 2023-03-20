@@ -1,6 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { StrictMode, useEffect, useState } from "react";
-import { getSummaryData } from "./getData";
 
 const tableau = window.tableau;
 
@@ -12,7 +11,8 @@ async function getWorksheets() {
   return tableau.extensions.dashboardContent.dashboard.worksheets;
 }
 
-export const Worksheet = function ({ worksheets, selectedDataCallback }) {
+export const Worksheet = function ({worksheets}) {
+
   const [selectedSheet, setSelectedSheet] = useState("");
 
   console.log("worksgeets component got..", worksheets);
@@ -20,13 +20,6 @@ export const Worksheet = function ({ worksheets, selectedDataCallback }) {
   const handleChange = (event) => {
     console.log("sleected sheet is ", event.target.value);
     setSelectedSheet(event.target.value);
-    
-   //  getSummaryData( event.target.value)
-
-    selectedDataCallback(getSummaryData( event.target.value)) //sending selected sheet back to state up
-
-
-
   };
 
   /** 
@@ -37,30 +30,18 @@ export const Worksheet = function ({ worksheets, selectedDataCallback }) {
 
   const elem = (
     <div className="row">
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Select Worksheet</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={selectedSheet}
-          label="worksheet"
-          onChange={handleChange}
-          sx={{
-            color: 'white'
-          }}
-        >
-          {worksheets.map((sheet) => {
-            console.log("sheet name prop", sheet.name);
-            return  <MenuItem value={sheet.name}  >{sheet.name}</MenuItem>
-          })}
-        </Select>
-      </FormControl>
+      <label>
+        Select the worksheet &nbsp; 
+        <select value={selectedSheet} onChange={handleChange}>
+          <Item worksheets={worksheets} />
+        </select>
+      </label>
     </div>
   );
 
   function Item({ worksheets }) {
     console.log("workhseet prop received is.. ", worksheets);
-    return worksheets.map((sheet) => {
+    return (worksheets).map((sheet) => {
       console.log("sheet name prop", sheet.name);
       return <option value={sheet.name}>{sheet.name} </option>;
     });
