@@ -22,32 +22,44 @@ const App = observer(function () {
     });
   });
 
-  const[config, setConfig]= useState({key:'enter your key',url:'',model:''});
+  const[config, setConfig]= useState({});
+  const [showConfig, setShowConfig] = useState(true)
 
   function configCallback(c){
 
     console.log("config callback receieved..", c);
-      setConfig(c)
+
+     //setConfig({...config,key:c.key,url:c.url,model:c.model, temperature:c.temperature});
+      setConfig({...c})
+      
+      setShowConfig(c.key.includes('enter your key'))
+     // console.log("config callback set..", config);
   }
+
+  useEffect(()=>{
+    console.log("config callback set..", config);
+  }, [config])
+
 
   //return <ChatSelected />
   return (
     <Fragment>
       <div className="row bg-secondary text-light  justify-content-end">
-        <div className="col-7 col-sm-6 ">
+        <div className="col-6 col-sm-6 ">
           <h6>Tableau Chat GPT Advisor Extension</h6>
          
         </div>
-        <div className="col-5 col-sm-6">
-          <Config configCallback={configCallback}/>
+        <div className="col-6 col-sm-6">
+        <Config configCallback={configCallback}/>
         </div>
        
       </div>
 
-      <ChatSelected />
+       <ChatSelected />
   
 
       
+  
 
     </Fragment>
   );

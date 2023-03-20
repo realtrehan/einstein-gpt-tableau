@@ -150,7 +150,11 @@ export const initialChatsDetails = {
 }
 ]
 }
-export const gptConfig = { url:"https://api.openai.com/v1/chat/completions", key: "enter your key", model:"gpt-3.5-turbo", temperature:0.7}
+
+export const gptConfig = { configs:[ {
+  url:"https://api.openai.com/v1/chat/completions", key: "enter your key", model:"gpt-3.5-turbo", temperature:0.7
+}]
+}
 
 export const gptResponses = {
   responses:[
@@ -158,7 +162,8 @@ export const gptResponses = {
   ]
 }
 
-makeAutoObservable(gptConfig);makeAutoObservable(gptResponses);
+makeAutoObservable(gptConfig);
+makeAutoObservable(gptResponses);
 
 makeAutoObservable(initialChats);
 

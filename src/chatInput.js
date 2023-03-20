@@ -9,11 +9,12 @@ import {
   initialChats as chatsStore,
   initialChatsDetails as chatsDetailsStore,
 } from "./context.js";
-import { action, autorun, runInAction, toJS } from "mobx";
+import { action, autorun, runInAction, toJS, when, trace } from "mobx";
 import { observer } from "mobx-react-lite";
 import { useConfig } from "./tableau/useConfig.js";
 import { useRunGPT } from "./lib/useRunGPT.js";
 import LinearProgress  from "@mui/material/LinearProgress";
+import axios from 'axios';
 
 
 //addedChatId is callback to pass the chatId back to the parent chatdetails
@@ -26,7 +27,7 @@ export const ChatInput = observer(function () {
   const [inputVal, setInputVal] = useState(""); //to capture the input text value
 const [inputState, setInputState] = useState(false) //to disable enter key to avoid double submit
 
-    const config = gptConfig
+    const config = gptConfig.configs[0];
 
   //for the input text chat enter press key
   function newChatEnter(e) {
@@ -71,6 +72,8 @@ const [inputState, setInputState] = useState(false) //to disable enter key to av
       };
 
       let gptRes;
+
+      console.log("config used to run chatgpt is ", {...config})
      
     gptRes = await runGPT(messages,config.url, config.key)
 
@@ -98,6 +101,7 @@ const [inputState, setInputState] = useState(false) //to disable enter key to av
   }
 
 // for running GPT 
+/** 
 function runGPT (gptRequestPayload,url, key){
 
     return new Promise((resolve, reject) => {
@@ -113,9 +117,7 @@ function runGPT (gptRequestPayload,url, key){
         body: JSON.stringify(gptRequestPayload),
       };
 
-      if (key.includes('enter your key') === false)  {
         console.log("calling gpt api with payload..", gptPayload);
-      /** */
       fetch(url, gptPayload)
         .then((res) => res.json())
         .then(
@@ -130,9 +132,55 @@ function runGPT (gptRequestPayload,url, key){
           })
         ).catch((err)=>{console.log("error in gpt fetch!!", err)});
     
-  };
+
 })
 }
+*/
+
+
+// for running GPT 
+
+function runGPT (gptRequestPayload,url, key){
+
+    return new Promise((resolve, reject) => {
+
+
+        const headers ={
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer "+ key
+        }
+  
+        console.log("calling gpt api with header..", headers);
+
+
+      axios.post(url,gptRequestPayload, {headers:headers})
+  .then(function (res) {
+    // handle success
+    
+    console.log("gpt response...", res);
+    const content = res.data.choices[0].message.content;
+    console.log("gpt response...", content);
+
+    setInputState(false) //renable the enter input 
+    resolve(content);
+
+    
+
+  })
+  .catch(function (err) {
+    // handle error
+    console.log("error in gpt fetch!!", err)
+    reject();
+  })
+
+  setTimeout(()=>{
+    setInputState(false) //renable the enter input 
+    reject();
+  },90000)
+      
+})
+}
+
 
 
   //for the send icon button click
