@@ -9,7 +9,7 @@ export const getSummaryData = async function getSummaryData(selectedSheetName) {
 
   //initialize the new messages to zero for each worksheet in the gptmessage store
 const newMsgs = [];
-gptMessages.messages.clear()
+gptMessages.messages.clear() ; //this is needed to empty the store array for each worksheet selection
 
 
   //  return new Promise((resolve, reject) => {})
@@ -46,7 +46,14 @@ gptMessages.messages.clear()
     row.forEach(function (val) {
       // console.log("_nativeValue type is ", typeof val._nativeValue);
       if (typeof val._nativeValue === "number") {
-        formattedRow.push(parseFloat(val._nativeValue));
+
+        if (val._nativeValue > 1) {
+            formattedRow.push(parseFloat(val._nativeValue).toFixed(2));
+        }
+        else{
+            formattedRow.push(parseFloat(val._nativeValue).toFixed(4));
+        }
+        
       } else {
         formattedRow.push(val._nativeValue);
       }
