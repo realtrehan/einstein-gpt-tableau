@@ -44,12 +44,16 @@ export const ChatSelected = observer( function () {
  */
 const styleChat = {
    height: 'auto',
-   maxheight: '1920px',
+   //maxheight: '1920px',
+   maxheight: '100vh',
+   overflow: 'auto'
 
 }
 const styleDetail = {
-  height: '600px',
-  maxheight: '1920px',
+  height: '100vh',
+  //maxheight: '1920px',
+  maxheight: '100vh',
+  overflow: 'auto'
 }
 
 

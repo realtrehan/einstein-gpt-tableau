@@ -1,5 +1,16 @@
+
+
+
+import { gptMessages } from "../context";
+
+
 export const getSummaryData = async function getSummaryData(selectedSheetName) {
   const tableau = window.tableau;
+
+  //initialize the new messages to zero for each worksheet in the gptmessage store
+const newMsgs = [];
+gptMessages.messages.clear()
+
 
   //  return new Promise((resolve, reject) => {})
 
@@ -53,6 +64,12 @@ export const getSummaryData = async function getSummaryData(selectedSheetName) {
   );
 
   console.log("returning formatted data..", formattedTable);
+
+    //push the summary data to chatGPT messages array
+  newMsgs.push({ role: "user", content: "the data for analysis has these columns: "+ formattedTable[0]  });
+  newMsgs.push({ role: "user", content: "the data set values are : "+ formattedTable.slice(2)  });
+_.assign(gptMessages.messages, newMsgs);
+// gptMessages.messages.replace(newMsgs)
 
   return formattedTable;
 };

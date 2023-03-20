@@ -168,13 +168,20 @@ export const gptResponses = {
   ]
 }
 
+export const gptMessages = {
+  messages:[
+      {"role": "system", "content": "You are a helpful data analyst"}
+  ]
+}
+
 //use makeautoobservable but DO NOT use actions to update their value. when updating
 //USE the deepclone and ASSIGN combination. no need to use observer for component that only update but are not using observables
 //DO NOT use other combinations of observables etc. still follow the best practive of lifting the state up in react
 //also note that set state is async function so use deepclone technique 
 
 
-makeAutoObservable(gptConfig);
+makeAutoObservable(gptConfig); 
+makeAutoObservable(gptMessages);
 makeAutoObservable(gptResponses);
 
 makeAutoObservable(initialChats);

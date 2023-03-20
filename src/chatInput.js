@@ -1,9 +1,9 @@
 import { Fragment } from "react";
 import React, { StrictMode } from "react";
-import { useChats, useChatsDispatch } from "./context.js";
+import { gptMessages, useChats, useChatsDispatch } from "./context.js";
 import { useState, useRef, useEffect } from "react";
 import SendButton from "./sendButton.svg";
-import { useChatsDetails, useChatsDetailsDispatch,gptConfig } from "./context.js";
+import { useChatsDetails, useChatsDetailsDispatch,gptConfig} from "./context.js";
 import _ from "lodash";
 import {
   initialChats as chatsStore,
@@ -29,6 +29,8 @@ const [inputState, setInputState] = useState(false) //to disable enter key to av
 
    // const config = gptConfig.configs[0];
    const config = gptConfig;
+
+   const gptResponses = gptMessages.messages;
 
   //for the input text chat enter press key
   function newChatEnter(e) {
@@ -63,12 +65,27 @@ const [inputState, setInputState] = useState(false) //to disable enter key to av
     });
 
    
+    //insert the new message in the gptmessage store
+
+    const newMsgs = _.cloneDeep(gptMessages.messages);
+     newMsgs.push({ role: "user", content: inputVal });
+     _.assign(gptMessages.messages, newMsgs)
+
+
 
     //call the useRungpt hook to pass question to gpt
 
+    /** 
     const messages = {
         model: config.model,
         messages: [{ role: "user", content: inputVal }],
+        temperature: parseFloat(config.temperature),
+      };
+      */
+
+      const messages = {
+        model: config.model,
+        messages: newMsgs,
         temperature: parseFloat(config.temperature),
       };
 
@@ -151,7 +168,7 @@ function runGPT (gptRequestPayload,url, key){
                 'Authorization': "Bearer "+ key
         }
   
-        console.log("calling gpt api with header..", headers);
+        console.log("calling gpt api with payload..", gptRequestPayload);
 
 
       axios.post(url,gptRequestPayload, {headers:headers})
@@ -177,7 +194,7 @@ function runGPT (gptRequestPayload,url, key){
   setTimeout(()=>{
     setInputState(false) //renable the enter input 
     reject();
-  },90000)
+  },180000)
       
 })
 }

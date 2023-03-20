@@ -38,7 +38,11 @@ export const Worksheet = function ({ worksheets, selectedDataCallback }) {
   const elem = (
     <div className="row">
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Select Worksheet</InputLabel>
+        <InputLabel id="demo-simple-select-label"
+        sx={{
+            color: 'white'
+          }}
+        >Select Worksheet</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

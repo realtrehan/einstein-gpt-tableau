@@ -70,7 +70,7 @@ export const ChatsDetailsList = observer(function ({
         <div className="d-flex justify-content-start  p-1 " style={style}>
           <span >{questionAnswer.question}  </span> 
         </div>
-        <div className="d-flex justify-content-start  ps-2" style={style}>
+        <div className="d-flex justify-content-start  ps-3" style={style}>
           <span >{questionAnswer.answer} </span> 
         </div>
         <hr></hr>
