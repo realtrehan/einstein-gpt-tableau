@@ -42,7 +42,7 @@ export const getSummaryData = async function getSummaryData(selectedSheetName) {
       // console.log("_nativeValue type is ", typeof val._nativeValue);
       if (typeof val._nativeValue === "number") {
         if (val._nativeValue > 1) {
-          formattedRow.push(parseFloat(val._nativeValue).toFixed(0));
+          formattedRow.push(parseFloat(val._nativeValue).toFixed(0)); //try to keep decimals low to avoid 4k token api limit
         } else {
           formattedRow.push(parseFloat(val._nativeValue).toFixed(2));
         }

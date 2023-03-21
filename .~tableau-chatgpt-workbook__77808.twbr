@@ -3472,6 +3472,28 @@
     </worksheet>
   </worksheets>
   <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 4'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones />
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E854CFAF-4089-452B-A698-F81DA4929E86}' />
+    </dashboard>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Setup Instructions'>
       <style />
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
@@ -3530,8 +3552,8 @@
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='37400' x='800' y='1000'>
-            <zone h='5250' id='14' type-v2='title' w='37400' x='800' y='1000'>
+          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='49299' x='800' y='1000'>
+            <zone h='5250' id='14' type-v2='title' w='49299' x='800' y='1000'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -3539,10 +3561,10 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='92750' id='11' type-v2='layout-basic' w='37400' x='800' y='6250'>
-              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='37400' x='800' y='6250'>
-                <zone h='92750' id='5' type-v2='layout-basic' w='37400' x='800' y='6250'>
-                  <zone h='46375' id='3' name='shipping analysis' w='37400' x='800' y='52625'>
+            <zone h='92750' id='11' type-v2='layout-basic' w='49299' x='800' y='6250'>
+              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='49299' x='800' y='6250'>
+                <zone h='92750' id='5' type-v2='layout-basic' w='49299' x='800' y='6250'>
+                  <zone h='46375' id='3' name='shipping analysis' w='49299' x='800' y='52625'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -3550,7 +3572,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='46375' id='9' name='product analysis' w='37400' x='800' y='6250'>
+                  <zone h='46375' id='9' name='product analysis' w='49299' x='800' y='6250'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -3562,10 +3584,10 @@
               </zone>
             </zone>
           </zone>
-          <zone forceUpdate='true' h='98000' id='17' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='61000' x='38200' y='1000'>
-            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='33950507B82C4FED8878B94677314645'>
+          <zone forceUpdate='true' h='98000' id='17' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49101' x='50099' y='1000'>
+            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='F21C0C940DF54CF19A9D6269685D729C'>
               <instance-settings>
-                <setting key='key' value='enter your key' />
+                <setting key='key' value='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' />
                 <setting key='model' value='gpt-3.5-turbo' />
                 <setting key='temperature' value='0.7' />
                 <setting key='url' value='https://api.openai.com/v1/chat/completions' />
@@ -3640,8 +3662,8 @@
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='32500' x='800' y='1000'>
-            <zone h='9500' id='14' type-v2='title' w='32500' x='800' y='1000'>
+          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='49200' x='800' y='1000'>
+            <zone h='5250' id='14' type-v2='title' w='49200' x='800' y='1000'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -3649,10 +3671,10 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='88500' id='11' type-v2='layout-basic' w='32500' x='800' y='10500'>
-              <zone h='88500' id='7' param='horz' type-v2='layout-flow' w='32500' x='800' y='10500'>
-                <zone h='88500' id='5' type-v2='layout-basic' w='32500' x='800' y='10500'>
-                  <zone h='44250' id='3' name='shipping analysis' w='32500' x='800' y='54750'>
+            <zone h='92750' id='11' type-v2='layout-basic' w='49200' x='800' y='6250'>
+              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='49200' x='800' y='6250'>
+                <zone h='92750' id='5' type-v2='layout-basic' w='49200' x='800' y='6250'>
+                  <zone h='46375' id='3' name='shipping analysis' w='49200' x='800' y='52625'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -3660,7 +3682,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='44250' id='9' name='product analysis' w='32500' x='800' y='10500'>
+                  <zone h='46375' id='9' name='product analysis' w='49200' x='800' y='6250'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -3672,10 +3694,10 @@
               </zone>
             </zone>
           </zone>
-          <zone forceUpdate='true' h='98000' id='17' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='65900' x='33300' y='1000'>
-            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='A15C4E52567C49AABF570AFC7C9EC202'>
+          <zone forceUpdate='true' h='98000' id='17' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='49200' x='50000' y='1000'>
+            <add-in add-in-id='com.example.extensions.name' extension-url='http://localhost:3000' extension-version='0.1.0' instance-id='F3A94198D2624E39A90CEB6232B6F601'>
               <instance-settings>
-                <setting key='key' value='enter your key' />
+                <setting key='key' value='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' />
                 <setting key='model' value='gpt-3.5-turbo' />
                 <setting key='temperature' value='0.7' />
                 <setting key='url' value='https://api.openai.com/v1/chat/completions' />
@@ -3747,14 +3769,14 @@
     </dashboard>
   </dashboards>
   <windows source-height='51'>
-    <window class='dashboard' name='Tableau ChatGPT Advisor'>
+    <window class='dashboard' maximized='true' name='Tableau ChatGPT Advisor'>
       <viewpoints>
         <viewpoint name='product analysis' />
         <viewpoint name='shipping analysis'>
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='3' />
+      <active id='17' />
       <simple-id uuid='{CA96C1A0-9801-40E7-A758-59EEF3A486D6}' />
     </window>
     <window class='dashboard' name='Tableau ChatGPT Advisor (2)'>
@@ -3767,10 +3789,15 @@
       <active id='17' />
       <simple-id uuid='{2409CC17-B47B-45FF-9A69-6D62BD75C28A}' />
     </window>
-    <window class='dashboard' maximized='true' name='Setup Instructions'>
+    <window class='dashboard' name='Setup Instructions'>
       <viewpoints />
       <active id='3' />
       <simple-id uuid='{DA8B8762-4083-4F5B-87EC-FA41E268E5C4}' />
+    </window>
+    <window class='dashboard' name='Dashboard 4'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{294D4A52-631E-4374-BF0F-0F33A07B9D23}' />
     </window>
     <window class='worksheet' hidden='true' name='product analysis'>
       <cards>
@@ -3835,6 +3862,31 @@
         <dashboard-extension extension-version='0.1.0' id='com.example.extensions.name'>
           <default-locale>en_US</default-locale>
           <name resource-id='name' />
+          <description>Tableau Relationship Advisor - Key Factors influencing the KPIs </description>
+          <author email='trehan.rahul@gmail.com' name='Rahul Trehan' organization='datafam' website='https://www.linkedin.com/in/trehanrahul/' />
+          <min-api-version>1.0</min-api-version>
+          <source-location>
+            <url>http://localhost:3000</url>
+          </source-location>
+          <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAlhJREFUOI2Nkt9vy1EYh5/3bbsvRSySCZbIxI+ZCKsN2TKtSFyIrV2WuRCJuBiJWxfuxCVXbvwFgiEtposgLFJElnbU1SxIZIIRJDKTrdu+53Uhra4mce7Oe57Pcz7JOULFisViwZ+29LAzOSjQYDgz1ZcCvWuXV11MJpN+OS/lm6179teqH0yDqxPTCyKSA8DcDsyOmOprnCaeP7459pdgy969i0LTC3IO/RQMyoHcQN+3cnljW3dNIFC47qDaK3g7BwdTkwBaBELT4ZPOUVWgKl4ZBnjxJPUlMDnTDrp0pmr6RHFeEjjcUUXPDGeSEwDN0Xg8sivxMhJNjGzbHd8PkM3eHRfkrBM5NkcQaY2vUnTlrDIA0NoaX+KLXFFlowr14tvVpqb2MICzmQcKqxvbumv+NAhZGCCIPwEw6QWXKYRL/VUXO0+rAUJiPwAk5MIlgVfwPjjHLCL1APmHN94ZdqeYN+NW/mn6I4BvwQYchcLnwFhJMDiYmlRxAzjpKWZkYkUCcZ2I61wi37tLbYyjiN0fHk5Oz3nGSLSzBbNHCF35R7f6K1/hN9PRhek11FrymfQQQKB4+Gl05P2qNRtmETlXW7e+b2z01dfycGNbfFMAbqNyKp9Jp4rzOT8RYFs0njJkc2iqsCObvTsOsDWWqA5C1uFy+Uz/oXJeKwVT4h0RmPUXhi79vuC0Ku6yOffTK3g9lfxfDQAisY516sg5kfOCiJk7HoLt2cf9b/9LANAc7dznm98PagG1fUOZ9IP5uMB8Q4CPoyNvausapkTt3rNMuvdf3C/o6+czhtdwmwAAAABJRU5ErkJggg==</icon>
+        </dashboard-extension>
+        <resources>
+          <resource id='name'>
+            <text locale='de_DE'>Tableau Relationship Advisor </text>
+            <text locale='en_US'>Tableau Relationship Advisor</text>
+            <text locale='fr_BE'>Tableau Relationship Advisor </text>
+          </resource>
+        </resources>
+      </manifest>
+      <referenced-views>
+        <referenced-view instances='1' viewId='Tableau ChatGPT Advisor (2)' />
+      </referenced-views>
+    </referenced-extension>
+    <referenced-extension>
+      <manifest manifest-version='0.1'>
+        <dashboard-extension extension-version='0.1.0' id='com.example.extensions.name'>
+          <default-locale>en_US</default-locale>
+          <name resource-id='name' />
           <description>Tableau ChatGPT Advisor: The Power Duo</description>
           <author email='trehan.rahul@gmail.com' name='Rahul Trehan' organization='datafam' website='https://www.linkedin.com/in/trehanrahul/' />
           <min-api-version>1.0</min-api-version>
@@ -3853,7 +3905,6 @@
       </manifest>
       <referenced-views>
         <referenced-view instances='1' viewId='Tableau ChatGPT Advisor' />
-        <referenced-view instances='1' viewId='Tableau ChatGPT Advisor (2)' />
       </referenced-views>
     </referenced-extension>
   </referenced-extensions>
