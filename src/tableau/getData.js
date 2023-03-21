@@ -42,9 +42,9 @@ export const getSummaryData = async function getSummaryData(selectedSheetName) {
       // console.log("_nativeValue type is ", typeof val._nativeValue);
       if (typeof val._nativeValue === "number") {
         if (val._nativeValue > 1) {
-          formattedRow.push(parseFloat(val._nativeValue).toFixed(2));
+          formattedRow.push(parseFloat(val._nativeValue).toFixed(0));
         } else {
-          formattedRow.push(parseFloat(val._nativeValue).toFixed(4));
+          formattedRow.push(parseFloat(val._nativeValue).toFixed(2));
         }
       } else {
         formattedRow.push(val._nativeValue);
