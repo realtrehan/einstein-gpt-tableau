@@ -3752,6 +3752,66 @@
       </table>
       <simple-id uuid='{F8711EAC-4C71-43AB-9933-76151C464FDB}' />
     </worksheet>
+    <worksheet name='product analysis (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Sample - Superstore' />
+          </datasources>
+          <datasource-dependencies datasource='Sample - Superstore'>
+            <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
+            <column datatype='real' name='[Profit]' role='measure' type='quantitative' />
+            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
+            <column-instance column='[Profit]' derivation='Sum' name='[sum:Profit:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Order Date]' derivation='Year' name='[yr:Order Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[Sample - Superstore].[sum:Sales:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[Sample - Superstore].[sum:Profit:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[Sample - Superstore].[yr:Order Date:ok]</rows>
+        <cols>([Sample - Superstore].[sum:Sales:qk] + [Sample - Superstore].[sum:Profit:qk])</cols>
+      </table>
+      <simple-id uuid='{6657A17E-C4A8-490B-B52C-7EFDD71900AE}' />
+    </worksheet>
     <worksheet name='shipping analysis'>
       <table>
         <view>
@@ -3869,8 +3929,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='10' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='9' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='12' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='11' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone forceUpdate='true' h='98000' id='3' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#333333' fontsize='24'>Setup Instruction for Tableau ChatGPT Advisor Extension</run>
@@ -3938,8 +3998,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='800' minheight='800' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='16' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='15' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='17' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone h='5250' id='12' type-v2='title' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4026,12 +4086,12 @@
               </zone>
             </zone>
           </zone>
-          <zone forceUpdate='true' h='98000' id='20' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49273' x='50000' y='1000'>
-            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='EB5FEC10F101498388DF2F8EF7E6C412'>
+          <zone forceUpdate='true' h='98000' id='25' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49273' x='50000' y='1000'>
+            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='E063C9B1CD4649DF985F508ACE092FF0'>
               <instance-settings>
                 <setting key='key' value='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' />
                 <setting key='model' value='gpt-3.5-turbo' />
-                <setting key='temperature' value='0.9' />
+                <setting key='temperature' value='0.7' />
                 <setting key='url' value='https://api.openai.com/v1/chat/completions' />
               </instance-settings>
               <type-settings>
@@ -4057,8 +4117,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='24' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='23' param='vert' type-v2='layout-flow' w='98546' x='727' y='1000'>
+            <zone h='100000' id='27' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='26' param='vert' type-v2='layout-flow' w='98546' x='727' y='1000'>
                 <zone h='5250' id='14' type-v2='title' w='49273' x='727' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4068,12 +4128,12 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone forceUpdate='true' h='98000' id='20' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49273' x='50000' y='1000'>
-                  <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='EB5FEC10F101498388DF2F8EF7E6C412'>
+                <zone forceUpdate='true' h='98000' id='25' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49273' x='50000' y='1000'>
+                  <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='E063C9B1CD4649DF985F508ACE092FF0'>
                     <instance-settings>
                       <setting key='key' value='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' />
                       <setting key='model' value='gpt-3.5-turbo' />
-                      <setting key='temperature' value='0.9' />
+                      <setting key='temperature' value='0.7' />
                       <setting key='url' value='https://api.openai.com/v1/chat/completions' />
                     </instance-settings>
                     <type-settings>
@@ -4124,8 +4184,8 @@
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='22400' x='800' y='1000'>
-            <zone h='13750' id='14' type-v2='title' w='22400' x='800' y='1000'>
+          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='45900' x='800' y='1000'>
+            <zone h='5250' id='14' type-v2='title' w='45900' x='800' y='1000'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -4133,10 +4193,10 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='84250' id='11' type-v2='layout-basic' w='22400' x='800' y='14750'>
-              <zone h='84250' id='7' param='horz' type-v2='layout-flow' w='22400' x='800' y='14750'>
-                <zone h='84250' id='5' type-v2='layout-basic' w='22400' x='800' y='14750'>
-                  <zone h='43947' id='3' name='shipping analysis' w='22400' x='800' y='55053'>
+            <zone h='92750' id='11' type-v2='layout-basic' w='45900' x='800' y='6250'>
+              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='45900' x='800' y='6250'>
+                <zone h='92750' id='5' type-v2='layout-basic' w='45900' x='800' y='6250'>
+                  <zone h='48385' id='3' name='shipping analysis' w='45900' x='800' y='50615'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -4144,7 +4204,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='40303' id='9' name='product analysis' w='22400' x='800' y='14750'>
+                  <zone h='44365' id='9' name='product analysis' w='45900' x='800' y='6250'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -4156,7 +4216,7 @@
               </zone>
             </zone>
           </zone>
-          <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='76000' x='23200' y='1000'>
+          <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='52500' x='46700' y='1000'>
             <add-in add-in-id='com.example.extensions.name' extension-url='http://localhost:3000' extension-version='0.1.0' instance-id='200F3EFB05B1439282C0F5A7F5A7704E'>
               <instance-settings>
                 <setting key='key' value='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' />
@@ -4185,11 +4245,11 @@
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='24' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='23' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
-                <zone h='5250' id='14' type-v2='title' w='49200' x='800' y='1000'>
+            <zone h='100000' id='26' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='25' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone h='5250' id='14' type-v2='title' w='45900' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4198,7 +4258,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='49200' x='50000' y='1000'>
+                <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='52500' x='46700' y='1000'>
                   <add-in add-in-id='com.example.extensions.name' extension-url='http://localhost:3000' extension-version='0.1.0' instance-id='200F3EFB05B1439282C0F5A7F5A7704E'>
                     <instance-settings>
                       <setting key='key' value='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' />
@@ -4218,7 +4278,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='244' h='31500' id='9' is-fixed='true' name='product analysis' w='49200' x='800' y='6250'>
+                <zone fixed-size='280' h='44365' id='9' is-fixed='true' name='product analysis' w='45900' x='800' y='6250'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4227,7 +4287,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='61250' id='3' is-fixed='true' name='shipping analysis' w='49200' x='800' y='37750'>
+                <zone fixed-size='280' h='48385' id='3' is-fixed='true' name='shipping analysis' w='45900' x='800' y='50615'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4258,7 +4318,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='25' />
       <simple-id uuid='{CA96C1A0-9801-40E7-A758-59EEF3A486D6}' />
     </window>
     <window class='dashboard' maximized='true' name='local-Tableau ChatGPT Advisor (2)'>
@@ -4268,8 +4328,31 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='22' />
       <simple-id uuid='{2409CC17-B47B-45FF-9A69-6D62BD75C28A}' />
+    </window>
+    <window class='worksheet' name='product analysis (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AAED63B2-EA53-4114-A8CA-BAA151B97F4C}' />
     </window>
     <window class='dashboard' name='Setup Instructions'>
       <viewpoints />
