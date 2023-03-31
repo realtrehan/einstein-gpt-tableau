@@ -14,36 +14,11 @@ import { ChatRes } from "./lib/chatres.js";
 import { Worksheet } from "./tableau/worksheets.js";
 import { getSummaryData } from "./tableau/getData.js";
 import Link from "@mui/material/Link";
+import { runAwsRum } from "./awsRUM.js";
+import { AwsRum } from "aws-rum-web"; //aws RUM application monitoring
 
-//AWS RUM application monitoring 
-import { AwsRum } from 'aws-rum-web';
 
-try {
-  const config = {
-    sessionSampleRate: 1,
-    guestRoleArn: "arn:aws:iam::254435831602:role/RUM-Monitor-eu-west-1-254435831602-8058444610861-Unauth",
-    identityPoolId: "eu-west-1:e248ffb9-3800-4732-976a-0fa1c00b25db",
-    endpoint: "https://dataplane.rum.eu-west-1.amazonaws.com",
-    telemetries: ["performance","errors","http"],
-    allowCookies: true,
-    enableXRay: true
-  };
 
-  const APPLICATION_ID = '99cf17bb-7b74-4892-afa8-671b5f211318';
-  const APPLICATION_VERSION = '1.0.0';
-  const APPLICATION_REGION = 'eu-west-1';
-
-  const awsRum = new AwsRum(
-    APPLICATION_ID,
-    APPLICATION_VERSION,
-    APPLICATION_REGION,
-    config
-  );
-} catch (error) {
-  // Ignore errors thrown during CloudWatch RUM web client initialization
-}
-
-//end of AWS RUM app monitoring
 
 const tableau = window.tableau; //tableau global winodw variable
 
