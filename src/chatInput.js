@@ -110,7 +110,13 @@ try {
 
     console.log("config used to run chatgpt is ", { ...config });
 
+    try{
     gptRes = await runGPT(messages, config.url, config.key);
+    } catch (err){
+    console.log("caught error !!", err)
+    
+    gptRes = "Error in calling Open AI API !! Error message is : " +  err;
+    }
 
     runInAction(() => {
       // input the gpt response back to array
@@ -198,12 +204,12 @@ function runGPT (gptRequestPayload,url, key){
         .catch(function (err) {
           // handle error
           console.log("error in gpt fetch!!", err);
-          reject();
+          reject(err.response.data.error.message);
         });
 
       setTimeout(() => {
         setInputState(false); //renable the enter input
-        reject();
+        reject("request time out");
       }, 180000);
     });
   }
