@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<!-- build 20223.22.1108.0821                               -->
-<workbook original-version='18.1' source-build='2022.3.1 (20223.22.1108.0821)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+<!-- build 20224.22.1117.1841                               -->
+<workbook original-version='18.1' source-build='2022.4.0 (20224.22.1117.1841)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
     <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
     <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
@@ -15,7 +15,6 @@
     <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
     <SetMembershipControl />
     <SheetIdentifierTracking />
-    <SortTagCleanup />
     <WindowsPersistSimpleIdentifiers />
     <WorksheetBackgroundTransparency />
   </document-format-change-manifest>
@@ -2823,7 +2822,6 @@
       <_.fcp.ObjectModelTableType.true...column caption='Orders' datatype='table' name='[__tableau_internal_object_id__].[Orders_ECFCA1FB690A41FE803BC071773BA862]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='People' datatype='table' name='[__tableau_internal_object_id__].[People_D73023733B004CC1B3CB1ACF62F4A965]' role='measure' type='quantitative' />
       <_.fcp.ObjectModelTableType.true...column caption='Returns' datatype='table' name='[__tableau_internal_object_id__].[Returns_2AA0FE4D737A4F63970131D0E7480A03]' role='measure' type='quantitative' />
-      <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
       <group name='[Top Customers by Profit]' name-style='unqualified' user:ui-builder='filter-group'>
         <groupfilter count='[Parameters].[Parameter 1]' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
           <groupfilter direction='DESC' expression='SUM([Profit])' function='order' user:ui-marker='order'>
@@ -2850,14 +2848,6 @@
       <semantic-values>
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
-      <default-sorts>
-        <manual-sort column='[none:Forecast Indicator:nk]' direction='ASC'>
-          <dictionary>
-            <bucket>&quot;Actual&quot;</bucket>
-            <bucket>&quot;Estimate&quot;</bucket>
-          </dictionary>
-        </manual-sort>
-      </default-sorts>
       <datasource-dependencies datasource='Parameters'>
         <column caption='Top Customers' datatype='integer' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='5'>
           <calculation class='tableau' formula='5' />
@@ -2938,185 +2928,6 @@
             <second-end-point object-id='Returns_2AA0FE4D737A4F63970131D0E7480A03' />
           </relationship>
         </relationships>
-      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-    </datasource>
-    <datasource inline='true' name='Clipboard_20230328T110650' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='Clipboard_20230328T110650' name='Clipboard_20230328T110650leaf'>
-            <connection class='textscan' directory='Data/0hn54fp1hsm2tf13mmoz306m3cou' filename='Clipboard_20230328T110650.txt' temporary='yes' />
-          </named-connection>
-        </named-connections>
-        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='Clipboard_20230328T110650leaf' name='Clipboard_20230328T110650#txt' table='[Clipboard_20230328T110650#txt]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_SG' separator='&#9;'>
-            <column datatype='integer' name='#' ordinal='0' />
-            <column datatype='string' name='date_string_day' ordinal='1' />
-            <column datatype='integer' name='total_requests' ordinal='2' />
-            <column datatype='integer' name='request_count' ordinal='3' />
-            <column datatype='integer' name='total_bytes' ordinal='4' />
-            <column datatype='string' name='location' ordinal='5' />
-            <column datatype='integer' name='ip_count' ordinal='6' />
-          </columns>
-        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
-        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='Clipboard_20230328T110650leaf' name='Clipboard_20230328T110650#txt' table='[Clipboard_20230328T110650#txt]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_SG' separator='&#9;'>
-            <column datatype='integer' name='#' ordinal='0' />
-            <column datatype='string' name='date_string_day' ordinal='1' />
-            <column datatype='integer' name='total_requests' ordinal='2' />
-            <column datatype='integer' name='request_count' ordinal='3' />
-            <column datatype='integer' name='total_bytes' ordinal='4' />
-            <column datatype='string' name='location' ordinal='5' />
-            <column datatype='integer' name='ip_count' ordinal='6' />
-          </columns>
-        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
-        <metadata-records>
-          <metadata-record class='capability'>
-            <remote-name />
-            <remote-type>0</remote-type>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias />
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
-              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
-              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
-              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
-              <attribute datatype='string' name='locale'>&quot;en_SG&quot;</attribute>
-              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>#</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[#]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>#</remote-alias>
-            <ordinal>0</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>date_string_day</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[date_string_day]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>date_string_day</remote-alias>
-            <ordinal>1</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <scale>1</scale>
-            <width>1073741823</width>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='LEN_RGB' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>total_requests</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[total_requests]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>total_requests</remote-alias>
-            <ordinal>2</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>request_count</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[request_count]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>request_count</remote-alias>
-            <ordinal>3</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>total_bytes</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[total_bytes]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>total_bytes</remote-alias>
-            <ordinal>4</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>location</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[location]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>location</remote-alias>
-            <ordinal>5</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <scale>1</scale>
-            <width>1073741823</width>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='LEN_RGB' />
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>ip_count</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[ip_count]</local-name>
-            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
-            <remote-alias>ip_count</remote-alias>
-            <ordinal>6</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='date' datatype='date' name='[Calculation_2858448766462406656]' role='dimension' type='ordinal'>
-        <calculation class='tableau' formula='MAKEDATE(2023,03,[date_string_day - Split 1])' />
-      </column>
-      <column datatype='date' name='[Date String Day (date)]' role='dimension' type='ordinal'>
-        <calculation class='tableau' formula='MAKEDATE( 1970, MONTH( DATEPARSE( &apos;y-MMM-d&apos;,  &quot;1970-&quot; + [date_string_day] + &quot;-01&quot; ) ), 1 )' />
-      </column>
-      <_.fcp.ObjectModelTableType.true...column caption='Clipboard_20230328T110650' datatype='table' name='[__tableau_internal_object_id__].[Clipboard_20230328T110650]' role='measure' type='quantitative' />
-      <column aggregation='Sum' caption='Date String Day - Split 1' datatype='integer' name='[date_string_day - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[Clipboard_20230328T110650].[date_string_day]'>
-        <calculation class='tableau' formula='INT( SPLIT( [date_string_day], &quot;-&quot;, 1 ) )' />
-      </column>
-      <column caption='Date String Day' datatype='string' name='[date_string_day]' role='dimension' type='nominal' />
-      <column caption='User Count' datatype='integer' name='[ip_count]' role='measure' type='quantitative' />
-      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
-      <column caption='Request Count' datatype='integer' name='[request_count]' role='measure' type='quantitative' />
-      <column caption='Total Bytes' datatype='integer' name='[total_bytes]' role='measure' type='quantitative' />
-      <column caption='Total Requests' datatype='integer' name='[total_requests]' role='measure' type='quantitative' />
-      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
-      </semantic-values>
-      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
-        <objects>
-          <object caption='Clipboard_20230328T110650' id='Clipboard_20230328T110650'>
-            <properties context=''>
-              <relation connection='Clipboard_20230328T110650leaf' name='Clipboard_20230328T110650#txt' table='[Clipboard_20230328T110650#txt]' type='table'>
-                <columns character-set='UTF-8' header='yes' locale='en_SG' separator='&#9;'>
-                  <column datatype='integer' name='#' ordinal='0' />
-                  <column datatype='string' name='date_string_day' ordinal='1' />
-                  <column datatype='integer' name='total_requests' ordinal='2' />
-                  <column datatype='integer' name='request_count' ordinal='3' />
-                  <column datatype='integer' name='total_bytes' ordinal='4' />
-                  <column datatype='string' name='location' ordinal='5' />
-                  <column datatype='integer' name='ip_count' ordinal='6' />
-                </columns>
-              </relation>
-            </properties>
-          </object>
-        </objects>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
     <datasource inline='true' name='World Indicators' version='18.1'>
@@ -3498,12 +3309,6 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
-      <column caption='avg life expectancy in years' datatype='real' name='[Calculation_2110358648300589057]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='(AVG([Life Expectancy Male]) + AVG([Life Expectancy Female]))/2' />
-      </column>
-      <column caption='health expenditure per capita %' datatype='real' name='[Calculation_2110358648301015042]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='AVG([Health Exp % GDP])*100' />
-      </column>
       <column datatype='string' name='[Country/Region]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
@@ -3587,8 +3392,234 @@
         </objects>
       </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
     </datasource>
+    <datasource inline='true' name='Clipboard_20230328T110650' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Clipboard_20230328T110650' name='Clipboard_20230328T110650leaf'>
+            <connection class='textscan' directory='Data/0hn54fp1hsm2tf13mmoz306m3cou' filename='Clipboard_20230328T110650.txt' temporary='yes' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='Clipboard_20230328T110650leaf' name='Clipboard_20230328T110650#txt' table='[Clipboard_20230328T110650#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_SG' separator='&#9;'>
+            <column datatype='integer' name='#' ordinal='0' />
+            <column datatype='string' name='date_string_day' ordinal='1' />
+            <column datatype='integer' name='total_requests' ordinal='2' />
+            <column datatype='integer' name='request_count' ordinal='3' />
+            <column datatype='integer' name='total_bytes' ordinal='4' />
+            <column datatype='string' name='location' ordinal='5' />
+            <column datatype='integer' name='ip_count' ordinal='6' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='Clipboard_20230328T110650leaf' name='Clipboard_20230328T110650#txt' table='[Clipboard_20230328T110650#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_SG' separator='&#9;'>
+            <column datatype='integer' name='#' ordinal='0' />
+            <column datatype='string' name='date_string_day' ordinal='1' />
+            <column datatype='integer' name='total_requests' ordinal='2' />
+            <column datatype='integer' name='request_count' ordinal='3' />
+            <column datatype='integer' name='total_bytes' ordinal='4' />
+            <column datatype='string' name='location' ordinal='5' />
+            <column datatype='integer' name='ip_count' ordinal='6' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_SG&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>#</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[#]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>#</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_string_day</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[date_string_day]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>date_string_day</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_requests</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_requests]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>total_requests</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>request_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[request_count]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>request_count</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_bytes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_bytes]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>total_bytes</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>location</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ip_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ip_count]</local-name>
+            <parent-name>[Clipboard_20230328T110650#txt]</parent-name>
+            <remote-alias>ip_count</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Clipboard_20230328T110650]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='date' datatype='date' name='[Calculation_2858448766462406656]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='MAKEDATE(2023,03,[date_string_day - Split 1])' />
+      </column>
+      <column datatype='date' name='[Date String Day (date)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='MAKEDATE( 1970, MONTH( DATEPARSE( &apos;y-MMM-d&apos;,  &quot;1970-&quot; + [date_string_day] + &quot;-01&quot; ) ), 1 )' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='Clipboard_20230328T110650' datatype='table' name='[__tableau_internal_object_id__].[Clipboard_20230328T110650]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Date String Day - Split 1' datatype='integer' name='[date_string_day - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[Clipboard_20230328T110650].[date_string_day]'>
+        <calculation class='tableau' formula='INT( SPLIT( [date_string_day], &quot;-&quot;, 1 ) )' />
+      </column>
+      <column caption='Date String Day' datatype='string' name='[date_string_day]' role='dimension' type='nominal' />
+      <column caption='User Count' datatype='integer' name='[ip_count]' role='measure' type='quantitative' />
+      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
+      <column caption='Request Count' datatype='integer' name='[request_count]' role='measure' type='quantitative' />
+      <column caption='Total Bytes' datatype='integer' name='[total_bytes]' role='measure' type='quantitative' />
+      <column caption='Total Requests' datatype='integer' name='[total_requests]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Singapore&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Clipboard_20230328T110650' id='Clipboard_20230328T110650'>
+            <properties context=''>
+              <relation connection='Clipboard_20230328T110650leaf' name='Clipboard_20230328T110650#txt' table='[Clipboard_20230328T110650#txt]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_SG' separator='&#9;'>
+                  <column datatype='integer' name='#' ordinal='0' />
+                  <column datatype='string' name='date_string_day' ordinal='1' />
+                  <column datatype='integer' name='total_requests' ordinal='2' />
+                  <column datatype='integer' name='request_count' ordinal='3' />
+                  <column datatype='integer' name='total_bytes' ordinal='4' />
+                  <column datatype='string' name='location' ordinal='5' />
+                  <column datatype='integer' name='ip_count' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
   </datasources>
   <worksheets>
+    <worksheet name='Sheet 5'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Which days are datafam accessing the extension?</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20230328T110650' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20230328T110650'>
+            <column caption='date' datatype='date' name='[Calculation_2858448766462406656]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='MAKEDATE(2023,03,[date_string_day - Split 1])' />
+            </column>
+            <column aggregation='Sum' caption='Date String Day - Split 1' datatype='integer' name='[date_string_day - Split 1]' role='dimension' type='ordinal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[Clipboard_20230328T110650].[date_string_day]'>
+              <calculation class='tableau' formula='INT( SPLIT( [date_string_day], &quot;-&quot;, 1 ) )' />
+            </column>
+            <column caption='Date String Day' datatype='string' name='[date_string_day]' role='dimension' type='nominal' />
+            <column caption='User Count' datatype='integer' name='[ip_count]' role='measure' type='quantitative' />
+            <column-instance column='[ip_count]' derivation='Sum' name='[sum:ip_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2858448766462406656]' derivation='Day-Trunc' name='[tdy:Calculation_2858448766462406656:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[Clipboard_20230328T110650].[sum:ip_count:qk]</rows>
+        <cols>[Clipboard_20230328T110650].[tdy:Calculation_2858448766462406656:qk]</cols>
+      </table>
+      <simple-id uuid='{DF8790A8-8BFB-4714-9032-B4DF4AE8CF2A}' />
+    </worksheet>
     <worksheet name='Sheet 6'>
       <layout-options>
         <title>
@@ -3677,116 +3708,6 @@
         <cols />
       </table>
       <simple-id uuid='{E37CA891-3E2F-4674-AD4A-4E38A0C8549C}' />
-    </worksheet>
-    <worksheet name='Sheet 9'>
-      <table>
-        <view>
-          <datasources />
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-          </pane>
-        </panes>
-        <rows />
-        <cols />
-      </table>
-      <simple-id uuid='{0DB8BE23-C78D-47F9-A391-A156D8039174}' />
-    </worksheet>
-    <worksheet name='life expectancy factors'>
-      <layout-options>
-        <title>
-          <formatted-text>
-            <run>Which days are datafam accessing the extension?</run>
-          </formatted-text>
-        </title>
-      </layout-options>
-      <table>
-        <view>
-          <datasources>
-            <datasource name='World Indicators' />
-          </datasources>
-          <datasource-dependencies datasource='World Indicators'>
-            <column caption='avg life expectancy in years' datatype='real' name='[Calculation_2110358648300589057]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='(AVG([Life Expectancy Male]) + AVG([Life Expectancy Female]))/2' />
-            </column>
-            <column caption='health expenditure per capita %' datatype='real' name='[Calculation_2110358648301015042]' role='measure' type='quantitative'>
-              <calculation class='tableau' formula='AVG([Health Exp % GDP])*100' />
-            </column>
-            <column datatype='string' name='[Country/Region]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
-            <column datatype='real' name='[GDP]' role='measure' type='quantitative' />
-            <column datatype='real' name='[Health Exp % GDP]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[Life Expectancy Female]' role='measure' type='quantitative' />
-            <column datatype='integer' name='[Life Expectancy Male]' role='measure' type='quantitative' />
-            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
-            <column-instance column='[GDP]' derivation='Avg' name='[avg:GDP:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Country/Region]' derivation='None' name='[none:Country/Region:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_2110358648300589057]' derivation='User' name='[usr:Calculation_2110358648300589057:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_2110358648301015042]' derivation='User' name='[usr:Calculation_2110358648301015042:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane id='4' selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='5' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[World Indicators].[usr:Calculation_2110358648300589057:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='6' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[World Indicators].[avg:GDP:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='7' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[World Indicators].[usr:Calculation_2110358648301015042:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>([World Indicators].[none:Region:nk] / [World Indicators].[none:Country/Region:nk])</rows>
-        <cols>([World Indicators].[usr:Calculation_2110358648300589057:qk] + ([World Indicators].[avg:GDP:qk] + [World Indicators].[usr:Calculation_2110358648301015042:qk]))</cols>
-      </table>
-      <simple-id uuid='{DF8790A8-8BFB-4714-9032-B4DF4AE8CF2A}' />
     </worksheet>
     <worksheet name='product analysis'>
       <table>
@@ -3891,82 +3812,6 @@
       </table>
       <simple-id uuid='{6657A17E-C4A8-490B-B52C-7EFDD71900AE}' />
     </worksheet>
-    <worksheet name='sales by year'>
-      <table>
-        <view>
-          <datasources>
-            <datasource name='Sample - Superstore' />
-          </datasources>
-          <datasource-dependencies datasource='Sample - Superstore'>
-            <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
-            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
-            <column-instance column='[Order Date]' derivation='Month' name='[mn:Order Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Order Date]' derivation='Year' name='[yr:Order Date:ok]' pivot='key' type='ordinal' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[Sample - Superstore].[sum:Sales:qk]</rows>
-        <cols>([Sample - Superstore].[yr:Order Date:ok] / [Sample - Superstore].[mn:Order Date:ok])</cols>
-      </table>
-      <simple-id uuid='{296F35B6-707E-4C0D-9DC1-384BB6E53B36}' />
-    </worksheet>
-    <worksheet name='sales by year (2)'>
-      <table>
-        <view>
-          <datasources>
-            <datasource name='Sample - Superstore' />
-          </datasources>
-          <datasource-dependencies datasource='Sample - Superstore'>
-            <column datatype='date' name='[Order Date]' role='dimension' type='ordinal' />
-            <column datatype='real' name='[Sales]' role='measure' type='quantitative' />
-            <column-instance column='[Sales]' derivation='Sum' forecast-column-base='[sum:Sales:qk]' forecast-column-type='forecast-value' name='[fVal:sum:Sales:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Order Date]' derivation='Month' name='[mn:Order Date:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Order Date]' derivation='Year' name='[yr:Order Date:ok]' pivot='key' type='ordinal' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <color column='[Sample - Superstore].[none:Forecast Indicator:nk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[Sample - Superstore].[fVal:sum:Sales:qk]</rows>
-        <cols>([Sample - Superstore].[yr:Order Date:ok] / [Sample - Superstore].[mn:Order Date:ok])</cols>
-        <forecast-specification auto-forecast-agg='true' band-confidence-level='95.000000' enabled='true' fill-type='fill-missing' ignore-last='1' model-type='auto-season' range-type='auto' show-prediction-bands='true' />
-      </table>
-      <simple-id uuid='{60D0F012-B50C-4C3B-B8B0-5AC74287394C}' />
-    </worksheet>
     <worksheet name='shipping analysis'>
       <table>
         <view>
@@ -3983,13 +3828,6 @@
             <column-instance column='[Profit]' derivation='Sum' name='[sum:Profit:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Sales]' derivation='Sum' name='[sum:Sales:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <shelf-sorts>
-            <shelf-sort-v2 dimension-to-sort='[Sample - Superstore].[none:Ship Mode:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[Sample - Superstore].[sum:Sales:qk]' shelf='columns'>
-              <sort-filter-info>
-                <sort-filter level-name='[Sample - Superstore].[none:Category:nk]' member-value='&quot;Technology&quot;' />
-              </sort-filter-info>
-            </shelf-sort-v2>
-          </shelf-sorts>
           <aggregation value='true' />
         </view>
         <style>
@@ -4000,160 +3838,37 @@
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
-              <breakdown value='auto' />
+              <breakdown value='on' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <size column='[Sample - Superstore].[sum:Profit:qk]' />
+              <color column='[Sample - Superstore].[sum:Sales:qk]' />
+              <text column='[Sample - Superstore].[none:Category:nk]' />
+              <text column='[Sample - Superstore].[none:Ship Mode:nk]' />
+            </encodings>
             <style>
               <style-rule element='mark'>
                 <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[Sample - Superstore].[sum:Profit:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[Sample - Superstore].[sum:Sales:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
               </style-rule>
             </style>
           </pane>
         </panes>
-        <rows total='true'>[Sample - Superstore].[none:Category:nk]</rows>
-        <cols total='true'>([Sample - Superstore].[none:Ship Mode:nk] * ([Sample - Superstore].[sum:Sales:qk] + [Sample - Superstore].[sum:Profit:qk]))</cols>
-        <subtotals>
-          <column>[Sample - Superstore].[none:Category:nk]</column>
-        </subtotals>
+        <rows />
+        <cols />
       </table>
       <simple-id uuid='{323B2761-9057-481D-820B-6F2596E95661}' />
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 5'>
-      <style />
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
-      <zones>
-        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='8' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
-            <zone h='98000' id='6' type-v2='layout-basic' w='98400' x='800' y='1000'>
-              <zone h='49000' id='3' name='sales by year' w='98400' x='800' y='1000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='49000' id='5' name='sales by year (2)' w='98400' x='800' y='50000'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
-          </zone>
-          <zone-style>
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='8' />
-          </zone-style>
-        </zone>
-      </zones>
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
-          <zones>
-            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{DD30C3F1-3600-4446-83BE-F110F88B63EB}' />
-    </dashboard>
-    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 6'>
-      <style />
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
-      <zones>
-        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='3' name='life expectancy factors' w='49200' x='800' y='1000'>
-            <zone-style>
-              <format attr='border-color' value='#000000' />
-              <format attr='border-style' value='none' />
-              <format attr='border-width' value='0' />
-              <format attr='margin' value='4' />
-            </zone-style>
-          </zone>
-          <zone forceUpdate='true' h='98000' id='5' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49200' x='50000' y='1000'>
-            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='73AC4E0252754232B8B78EA43BD6DD9A'>
-              <instance-settings>
-                <setting key='key' value='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' />
-                <setting key='model' value='gpt-3.5-turbo' />
-                <setting key='temperature' value='0.7' />
-                <setting key='url' value='https://api.openai.com/v1/chat/completions' />
-              </instance-settings>
-              <type-settings>
-                <dashboard />
-              </type-settings>
-            </add-in>
-            <zone-style>
-              <format attr='border-color' value='#000000' />
-              <format attr='border-style' value='none' />
-              <format attr='border-width' value='0' />
-              <format attr='margin' value='4' />
-            </zone-style>
-          </zone>
-          <zone-style>
-            <format attr='border-color' value='#000000' />
-            <format attr='border-style' value='none' />
-            <format attr='border-width' value='0' />
-            <format attr='margin' value='8' />
-          </zone-style>
-        </zone>
-      </zones>
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
-          <zones>
-            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{A636EB92-52CD-45E1-BEA7-2838D109E653}' />
-    </dashboard>
     <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Setup Instructions'>
       <style />
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
@@ -4193,8 +3908,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='700' minheight='700' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='12' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='11' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='14' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='13' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone forceUpdate='true' h='98000' id='3' type-v2='text' w='98400' x='800' y='1000'>
                   <formatted-text>
                     <run bold='true' fontalignment='1' fontcolor='#333333' fontsize='24'>Setup Instruction for Tableau ChatGPT Advisor Extension</run>
@@ -4254,7 +3969,7 @@
             <format attr='margin' value='8' />
           </zone-style>
         </zone>
-        <zone h='33250' id='5' name='life expectancy factors' w='40300' x='3600' y='28250' />
+        <zone h='33250' id='5' name='Sheet 5' w='40300' x='3600' y='28250' />
         <zone h='62750' id='7' name='Sheet 6' w='39800' x='48400' y='2125' />
         <zone h='18000' id='8' name='Sheet 7' show-title='false' w='24700' x='5200' y='7500' />
       </zones>
@@ -4262,8 +3977,8 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='800' minheight='800' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='84000' id='17' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
+            <zone h='100000' id='20' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='19' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000'>
                 <zone h='5250' id='12' type-v2='title' w='98400' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4291,7 +4006,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='266' h='33250' id='5' is-fixed='true' name='life expectancy factors' w='40300' x='3600' y='28250'>
+                <zone fixed-size='266' h='33250' id='5' is-fixed='true' name='Sheet 5' w='40300' x='3600' y='28250'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4318,60 +4033,56 @@
       <size maxheight='800' maxwidth='1100' minheight='800' minwidth='1100' sizing-mode='fixed' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='33' param='horz' type-v2='layout-flow' w='98546' x='727' y='1000'>
-            <zone h='98000' id='31' type-v2='layout-basic' w='98546' x='727' y='1000'>
-              <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='49273' x='727' y='1000'>
-                <zone h='5250' id='14' type-v2='title' w='49273' x='727' y='1000'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                  </zone-style>
-                </zone>
-                <zone h='92750' id='11' type-v2='layout-basic' w='49273' x='727' y='6250'>
-                  <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='49273' x='727' y='6250'>
-                    <zone h='92750' id='5' type-v2='layout-basic' w='49273' x='727' y='6250'>
-                      <zone h='35125' id='9' name='product analysis' w='49273' x='727' y='63875'>
-                        <zone-style>
-                          <format attr='border-color' value='#000000' />
-                          <format attr='border-style' value='none' />
-                          <format attr='border-width' value='0' />
-                          <format attr='margin' value='4' />
-                        </zone-style>
-                      </zone>
-                      <zone h='57625' id='29' name='sales by year' w='49273' x='727' y='6250'>
-                        <zone-style>
-                          <format attr='border-color' value='#000000' />
-                          <format attr='border-style' value='none' />
-                          <format attr='border-width' value='0' />
-                          <format attr='margin' value='4' />
-                        </zone-style>
-                      </zone>
-                    </zone>
+          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='44546' x='727' y='1000'>
+            <zone h='5250' id='14' type-v2='title' w='44546' x='727' y='1000'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92750' id='11' type-v2='layout-basic' w='44546' x='727' y='6250'>
+              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='44546' x='727' y='6250'>
+                <zone h='92750' id='5' type-v2='layout-basic' w='44546' x='727' y='6250'>
+                  <zone h='46375' id='3' name='shipping analysis' w='44546' x='727' y='52625'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='46375' id='9' name='product analysis' w='44546' x='727' y='6250'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
                   </zone>
                 </zone>
               </zone>
-              <zone forceUpdate='true' h='98000' id='28' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='49273' x='50000' y='1000'>
-                <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='FD09DE771A8742C4A6F04C53812D06F7'>
-                  <instance-settings>
-                    <setting key='key' value='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' />
-                    <setting key='model' value='gpt-3.5-turbo' />
-                    <setting key='temperature' value='0' />
-                    <setting key='url' value='https://api.openai.com/v1/chat/completions' />
-                  </instance-settings>
-                  <type-settings>
-                    <dashboard />
-                  </type-settings>
-                </add-in>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
             </zone>
+          </zone>
+          <zone forceUpdate='true' h='98000' id='25' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='54000' x='45273' y='1000'>
+            <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='E063C9B1CD4649DF985F508ACE092FF0'>
+              <instance-settings>
+                <setting key='key' value='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' />
+                <setting key='model' value='gpt-3.5-turbo' />
+                <setting key='temperature' value='0' />
+                <setting key='url' value='https://api.openai.com/v1/chat/completions' />
+              </instance-settings>
+              <type-settings>
+                <dashboard />
+              </type-settings>
+            </add-in>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
           </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
@@ -4385,9 +4096,9 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='27' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='26' param='vert' type-v2='layout-flow' w='98546' x='727' y='1000'>
-                <zone h='5250' id='14' type-v2='title' w='49273' x='727' y='1000'>
+            <zone h='100000' id='29' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='28' param='vert' type-v2='layout-flow' w='98546' x='727' y='1000'>
+                <zone h='5250' id='14' type-v2='title' w='45728' x='727' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4396,7 +4107,36 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='46375' id='9' is-fixed='true' name='product analysis' w='49273' x='727' y='6250'>
+                <zone forceUpdate='true' h='98000' id='25' param='[com.example.extensions.name].[0.1.0].[https://tableau-chatgpt-advisor.rahultrehan.com/]' type-v2='dashboard-object' w='52818' x='46455' y='1000'>
+                  <add-in add-in-id='com.example.extensions.name' extension-url='https://tableau-chatgpt-advisor.rahultrehan.com/' extension-version='0.1.0' instance-id='E063C9B1CD4649DF985F508ACE092FF0'>
+                    <instance-settings>
+                      <setting key='key' value='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' />
+                      <setting key='model' value='gpt-3.5-turbo' />
+                      <setting key='temperature' value='0.7' />
+                      <setting key='url' value='https://api.openai.com/v1/chat/completions' />
+                    </instance-settings>
+                    <type-settings>
+                      <dashboard />
+                    </type-settings>
+                  </add-in>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46375' id='9' is-fixed='true' name='product analysis' w='45728' x='727' y='6250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46375' id='3' is-fixed='true' name='shipping analysis' w='45728' x='727' y='52625'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4423,8 +4163,8 @@
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='45900' x='800' y='1000'>
-            <zone h='5250' id='14' type-v2='title' w='45900' x='800' y='1000'>
+          <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='50300' x='800' y='1000'>
+            <zone h='5250' id='14' type-v2='title' w='50300' x='800' y='1000'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -4432,10 +4172,10 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='92750' id='11' type-v2='layout-basic' w='45900' x='800' y='6250'>
-              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='45900' x='800' y='6250'>
-                <zone h='92750' id='5' type-v2='layout-basic' w='45900' x='800' y='6250'>
-                  <zone h='48385' id='3' name='shipping analysis' w='45900' x='800' y='50615'>
+            <zone h='92750' id='11' type-v2='layout-basic' w='50300' x='800' y='6250'>
+              <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='50300' x='800' y='6250'>
+                <zone h='92750' id='5' type-v2='layout-basic' w='50300' x='800' y='6250'>
+                  <zone h='48385' id='3' name='shipping analysis' w='50300' x='800' y='50615'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -4443,7 +4183,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='44365' id='9' name='product analysis' w='45900' x='800' y='6250'>
+                  <zone h='44365' id='9' name='product analysis' w='50300' x='800' y='6250'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -4455,7 +4195,7 @@
               </zone>
             </zone>
           </zone>
-          <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='52500' x='46700' y='1000'>
+          <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='48100' x='51100' y='1000'>
             <add-in add-in-id='com.example.extensions.name' extension-url='http://localhost:3000' extension-version='0.1.0' instance-id='200F3EFB05B1439282C0F5A7F5A7704E'>
               <instance-settings>
                 <setting key='key' value='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' />
@@ -4486,9 +4226,9 @@
         <devicelayout auto-generated='true' name='Phone'>
           <size maxheight='750' minheight='750' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='26' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='25' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
-                <zone h='5250' id='14' type-v2='title' w='45900' x='800' y='1000'>
+            <zone h='100000' id='28' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='27' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone h='5250' id='14' type-v2='title' w='50300' x='800' y='1000'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4497,7 +4237,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='52500' x='46700' y='1000'>
+                <zone forceUpdate='true' h='98000' id='22' param='[com.example.extensions.name].[0.1.0].[http://localhost:3000]' type-v2='dashboard-object' w='48100' x='51100' y='1000'>
                   <add-in add-in-id='com.example.extensions.name' extension-url='http://localhost:3000' extension-version='0.1.0' instance-id='200F3EFB05B1439282C0F5A7F5A7704E'>
                     <instance-settings>
                       <setting key='key' value='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' />
@@ -4517,7 +4257,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='44365' id='9' is-fixed='true' name='product analysis' w='45900' x='800' y='6250'>
+                <zone fixed-size='280' h='44365' id='9' is-fixed='true' name='product analysis' w='50300' x='800' y='6250'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4526,7 +4266,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='48385' id='3' is-fixed='true' name='shipping analysis' w='45900' x='800' y='50615'>
+                <zone fixed-size='280' h='48385' id='3' is-fixed='true' name='shipping analysis' w='50300' x='800' y='50615'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4553,26 +4293,42 @@
     <window class='dashboard' name='aws-Tableau ChatGPT Advisor'>
       <viewpoints>
         <viewpoint name='product analysis' />
-        <viewpoint name='sales by year'>
+        <viewpoint name='shipping analysis'>
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
       <active id='9' />
       <simple-id uuid='{CA96C1A0-9801-40E7-A758-59EEF3A486D6}' />
     </window>
-    <window class='dashboard' name='Dashboard 5'>
-      <viewpoints>
-        <viewpoint name='sales by year'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='sales by year (2)'>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='5' />
-      <simple-id uuid='{E614EAAA-B7BF-4D66-A82B-426A3E91367E}' />
+    <window class='worksheet' maximized='true' name='product analysis'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[Sample - Superstore].[sum:Profit:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{93082886-E78A-4973-9AFF-B2C8EBB6220A}' />
     </window>
-    <window class='dashboard' maximized='true' name='local-Tableau ChatGPT Advisor (2)'>
+    <window class='dashboard' name='local-Tableau ChatGPT Advisor (2)'>
       <viewpoints>
         <viewpoint name='product analysis' />
         <viewpoint name='shipping analysis'>
@@ -4612,20 +4368,20 @@
     </window>
     <window class='dashboard' name='TabGPT Extension Access by #Datafam'>
       <viewpoints>
+        <viewpoint name='Sheet 5'>
+          <zoom type='entire-view' />
+        </viewpoint>
         <viewpoint name='Sheet 6'>
           <zoom type='entire-view' />
         </viewpoint>
         <viewpoint name='Sheet 7'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='life expectancy factors'>
-          <zoom type='entire-view' />
-        </viewpoint>
       </viewpoints>
       <active id='-1' />
       <simple-id uuid='{294D4A52-631E-4374-BF0F-0F33A07B9D23}' />
     </window>
-    <window class='worksheet' name='life expectancy factors'>
+    <window class='worksheet' name='Sheet 5'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4694,117 +4450,6 @@
       </cards>
       <simple-id uuid='{CB05471B-1CD1-41A6-AB21-ADECA375DE28}' />
     </window>
-    <window class='worksheet' name='sales by year'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{0C12583A-FA10-491E-AABF-CDEEE4EE4930}' />
-    </window>
-    <window class='worksheet' name='sales by year (2)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[Sample - Superstore].[none:Forecast Indicator:nk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{5B45DEC0-6942-46ED-A96F-B2EF564AEA21}' />
-    </window>
-    <window class='dashboard' name='Dashboard 6'>
-      <viewpoints>
-        <viewpoint name='life expectancy factors'>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='5' />
-      <simple-id uuid='{D83E79A5-86C4-4116-82D8-CEC8C6BBF2FD}' />
-    </window>
-    <window class='worksheet' name='Sheet 9'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{5E4ECD9C-9C05-4B34-A949-9129AA4E9A3D}' />
-    </window>
-    <window class='worksheet' hidden='true' name='product analysis'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='1' param='[Sample - Superstore].[sum:Profit:qk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{93082886-E78A-4973-9AFF-B2C8EBB6220A}' />
-    </window>
     <window class='worksheet' hidden='true' name='shipping analysis'>
       <cards>
         <edge name='left'>
@@ -4823,6 +4468,11 @@
           </strip>
           <strip size='31'>
             <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[Sample - Superstore].[sum:Sales:qk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -4877,7 +4527,6 @@
         </resources>
       </manifest>
       <referenced-views>
-        <referenced-view instances='1' viewId='Dashboard 6' />
         <referenced-view instances='1' viewId='aws-Tableau ChatGPT Advisor' />
       </referenced-views>
     </referenced-extension>
